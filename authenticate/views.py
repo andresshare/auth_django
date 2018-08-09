@@ -16,9 +16,14 @@ def login_user(request):
             messages.success(request,('Logged In'))
             return redirect('home')
 
-
         else:
             messages.success(request, (' Error Logged In *Try again'))
             return redirect('login')
     else:
         return render(request, 'authenticate/login.html',{})
+
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, (' you have been Logged Out'))
+    return redirect('home')
