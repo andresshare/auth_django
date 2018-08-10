@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from .forms import SignUpForm
 
 def home(request):
@@ -45,3 +45,7 @@ def register_user(request):
         form = SignUpForm()
     context = {'form':form}
     return render(request, 'authenticate/register.html',context )
+
+
+def edit_profile(request):
+    return render(request, 'authenticate/edit_profile.html', context)

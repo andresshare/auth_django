@@ -6,6 +6,11 @@
     <form  method="post" action="{% url 'register' %}" >{% csrf_token %}
         {% if form.errors %}
             <p>you form has Error</p>
+            {% for Form in Errors  %}
+                {% if  field.errors %}
+                    {{field.errors}}
+                {% endif %}
+            {% endfor %}
         {% endif %}
         {{ form.as_p }}
         <input type="submit" value="Register" class="btn btn-secondary">
